@@ -3,8 +3,6 @@ import { useListLinks } from '@/hooks/useListLinks';
 export const ListUrls = () => {
   const { allLinks } = useListLinks();
 
-  console.log(allLinks);
-
   return (
     <div>
       {allLinks?.map((link: { shortUrl: string; longUrl: string }) => (

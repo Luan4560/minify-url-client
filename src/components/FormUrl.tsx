@@ -1,7 +1,6 @@
 'use client';
 
 import { useCreateShortUrl } from '@/hooks/useCreateShortUrl';
-import { ListUrls } from './ListUrls';
 
 export const FormUrl = () => {
   const { handleSubmitUrl, longUrl, setLongUrl, shortUrl } =
@@ -38,8 +37,6 @@ export const FormUrl = () => {
             </a>
           </div>
         )}
-
-        <ListUrls />
       </div>
     </main>
   );
