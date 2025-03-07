@@ -1,9 +1,8 @@
-"use client"
-
+'use client';
 export const Footer = () => {
   return (
-  <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-    <h1>Footer</h1>
-   </footer>
-  )
-}
+    <footer className="w-full flex bg-secondary h-[4rem] items-center justify-center">
+      <h2 className="text-highlight">Footer</h2>
+    </footer>
+  );
+};
