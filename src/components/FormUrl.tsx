@@ -7,9 +7,9 @@ export const FormUrl = () => {
     useCreateShortUrl();
 
   return (
-    <main className="w-[900px] flex flex-col gap-8 row-start-2 items-center">
+    <main className="w-full flex flex-col gap-8 items-center p-4">
       <h1 className="text-highlight font-bold text-3xl">MinifyURL</h1>
-      <div className="w-full border border-gray-100 rounded-md p-8 flex-col flex items-start shadow-sm gap-2">
+      <div className="w-full border border-gray-100 rounded-md flex-col flex items-start shadow-sm gap-2 p-4 md:w-1/2">
         <p className="text-secondary font-semibold">
           Paste the URL to be minified
         </p>
@@ -31,9 +31,11 @@ export const FormUrl = () => {
 
         {shortUrl && (
           <div className="hover:text-highlight">
-            <a href={`${process.env.NEXT_PUBLIC_API_URL}${shortUrl}`}>
-              {process.env.NEXT_PUBLIC_API_URL}
-              {shortUrl}
+            <a
+              href={`${process.env.NEXT_PUBLIC_API_URL}/${shortUrl}`}
+              target="_blank"
+            >
+              {process.env.NEXT_PUBLIC_API_URL}/{shortUrl}
             </a>
           </div>
         )}

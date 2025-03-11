@@ -4,7 +4,7 @@ import { Header } from '@/components/Header';
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center justify-between h-screen bg-primary">
+    <div className="h-[100vh] w-full flex flex-col items-center justify-between overflow-hidden">
       <Header />
       <FormUrl />
       <Footer />
