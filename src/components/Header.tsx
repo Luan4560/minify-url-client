@@ -9,10 +9,13 @@ export const Header = () => {
         height={85}
         alt="Minify Logo"
         quality={100}
+        aria-label="Minify Logo"
       />
 
       <div className="pr-4">
-        <h2 className="text-highlight">MinifURL</h2>
+        <h2 className="text-highlight" aria-label="Title">
+          MinifURL
+        </h2>
       </div>
     </header>
   );

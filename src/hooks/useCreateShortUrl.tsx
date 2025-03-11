@@ -1,8 +1,19 @@
 import { useState } from 'react';
+import { z } from 'zod';
+import classNames from 'classnames';
+import { toast } from 'react-toastify';
+
+const urlSchema = z.string().url();
 
 export const useCreateShortUrl = () => {
   const [longUrl, setLongUrl] = useState('');
   const [shortUrl, setShorUrl] = useState('');
+
+  const notify = () => {
+    toast('URL copied to clipboard!', {
+      className: 'bg-highlight text-primary',
+    });
+  };
 
   const handleSubmitUrl = async () => {
     try {
@@ -28,11 +39,30 @@ export const useCreateShortUrl = () => {
     }
   };
 
+  const handleCopy = () => {
+    const joinUrl = `${process.env.NEXT_PUBLIC_API_URL}/${shortUrl}`;
+    navigator.clipboard.writeText(joinUrl);
+    notify();
+  };
+
+  const isUrlValid = urlSchema.safeParse(longUrl).success;
+
+  const inputClass = classNames(
+    'border-2 border-gray-300 p-2 rounded-md w-full sm:w-3/4 outline-highlight',
+    {
+      'border-none outline outline-2 outline-red-500':
+        !isUrlValid && longUrl !== '',
+    },
+  );
+
   return {
     shortUrl,
     longUrl,
+    inputClass,
+    isUrlValid,
     setLongUrl,
     setShorUrl,
     handleSubmitUrl,
+    handleCopy,
   };
 };
