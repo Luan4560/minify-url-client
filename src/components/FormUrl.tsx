@@ -3,7 +3,12 @@
 import { useCreateShortUrl } from '@/hooks/useCreateShortUrl';
 import { MdOutlineContentCopy } from 'react-icons/md';
 import { CardInstructions } from './CardInstruction';
-import { questrial } from '@/app/page';
+import { Questrial } from 'next/font/google';
+
+export const questrial = Questrial({
+  weight: '400',
+  subsets: ['latin'],
+});
 
 export const FormUrl = () => {
   const {
