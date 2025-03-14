@@ -1,40 +1,32 @@
 'use client';
 
+import Image from 'next/image';
+
 export const Footer = () => {
   return (
-    <footer className="w-full flex bg-secondary items-center justify-center pt-4 ">
-      <div className="w-full flex flex-col items-center gap-4">
-        <div className="w-full flex flex-col items-start px-4">
-          <div className="flex items-start gap-2">
-            <p className="text-white text-[10px]" aria-label=" phone">
-              Phone:
-            </p>
-            <span
-              className="text-white text-[10px]"
-              aria-label="number of phone"
-            >
-              +55 62 993341750
-            </span>
-          </div>
-
-          <div className="flex gap-2">
-            <p className="text-white text-[10px]">Email:</p>
-            <a
-              href="https://mail.google.com/mail/?view=cm&fs=1&to=luan.nascimento.dev@gmail.com&su=subject_here&body=body_here"
-              className="text-white text-[10px]"
-              aria-label="email"
-            >
-              luan.nascimento.dev@gmail.com
-            </a>
-          </div>
+    <footer className="w-full flex flex-col bg-primary items-center gap-4 border-t border-t-gray-500 p-4">
+      <div className="w-full flex flex-col items-start justify-start lg:w-[1300px] lg:flex lg:flex-row lg:items-center lg:justify-between">
+        <div>
+          <Image
+            src="/minify-logo.svg"
+            width={55}
+            height={55}
+            alt="Minify Logo"
+            quality={100}
+            aria-label="Minify Logo"
+          />
         </div>
 
-        <div>
-          <p className="text-white text-[10px]" aria-label="copyright">
-            Copyright © 2025 MinifyURL. All rights reserved.
-          </p>
+        <div className="flex flex-col gap-4 pr-4 lg:flex-row lg:items-center lg:justify-between">
+          <p className="text-sm">Política de Privacidade</p>
+          <p className="text-sm">Termos de Serviço</p>
+          <p className="text-sm">Configuracões de Cookies</p>
         </div>
       </div>
+
+      <p className="text-[12px] italic text-gray-500">
+        &copy; 2025 minifyurl.net Todos os direitos reservados
+      </p>
     </footer>
   );
 };

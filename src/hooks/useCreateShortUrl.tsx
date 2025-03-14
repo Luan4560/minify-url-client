@@ -8,6 +8,7 @@ const urlSchema = z.string().url();
 export const useCreateShortUrl = () => {
   const [longUrl, setLongUrl] = useState('');
   const [shortUrl, setShorUrl] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const notify = () => {
     toast('URL copied to clipboard!', {
@@ -17,6 +18,7 @@ export const useCreateShortUrl = () => {
 
   const handleSubmitUrl = async () => {
     try {
+      setLoading(true);
       const response = await fetch(
         `${process.env.NEXT_PUBLIC_API_URL}/shorten`,
         {
@@ -34,6 +36,7 @@ export const useCreateShortUrl = () => {
 
       const data = await response.json();
       setShorUrl(data?.shortUrl);
+      setLoading(false);
     } catch (error) {
       console.error('Request failed:', error);
     }
@@ -48,7 +51,7 @@ export const useCreateShortUrl = () => {
   const isUrlValid = urlSchema.safeParse(longUrl).success;
 
   const inputClass = classNames(
-    'border-2 border-gray-300 p-2 rounded-md w-full sm:w-3/4 outline-highlight',
+    'lg:w-full border p-4 border-gray-300 p-2 rounded-md w-full lg:w-3/4 outline-highlight placeholder-gray-500 text-white',
     {
       'border-none outline outline-2 outline-red-500':
         !isUrlValid && longUrl !== '',
@@ -64,5 +67,6 @@ export const useCreateShortUrl = () => {
     setShorUrl,
     handleSubmitUrl,
     handleCopy,
+    loading,
   };
 };

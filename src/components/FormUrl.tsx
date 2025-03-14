@@ -2,6 +2,8 @@
 
 import { useCreateShortUrl } from '@/hooks/useCreateShortUrl';
 import { MdOutlineContentCopy } from 'react-icons/md';
+import { CardInstructions } from './CardInstruction';
+import { questrial } from '@/app/page';
 
 export const FormUrl = () => {
   const {
@@ -12,20 +14,24 @@ export const FormUrl = () => {
     isUrlValid,
     inputClass,
     handleCopy,
+    loading,
   } = useCreateShortUrl();
 
   return (
-    <>
-      <main className="w-full flex flex-col gap-8 items-center p-4">
-        <h1 className="text-highlight font-bold text-3xl">MinifyURL</h1>
-        <div className="w-full border border-gray-100 rounded-md flex-col flex items-start shadow-sm gap-2 p-4 md:w-1/2">
-          <p
-            className="text-secondary font-semibold"
-            aria-label="URL Instructions"
-          >
-            Paste the URL to be minified
-          </p>
-          <div className="flex w-full">
+    <main className="w-full flex flex-col gap-10 items-center pt-8 ">
+      <h1 className={`${questrial.className} text-highlight text-4xl`}>
+        MinifyURL
+      </h1>
+
+      <section className="w-full flex flex-col items-center justify-center overflow-hidden gap-4 ">
+        <div className="w-full flex flex-col items-center justify-center gap-4 p-4 lg:w-[1300px]">
+          <CardInstructions />
+        </div>
+      </section>
+
+      <section className="w-full flex flex-col items-center justify-center ">
+        <div className="w-full rounded-md flex-col flex items-center gap-2 p-4 lg:w-[1300px]">
+          <div className="w-full flex flex-col  lg:flex-row justify-between gap-2">
             <input
               value={longUrl}
               onChange={e => setLongUrl(e.target.value)}
@@ -33,11 +39,12 @@ export const FormUrl = () => {
               placeholder="Enter your URL"
               className={inputClass}
               aria-label="URL Input"
+              id="minify-input"
             />
 
             <button
               onClick={handleSubmitUrl}
-              className="bg-highlight text-primary font-bold py-2 px-4 rounded-md hover:opacity-80 cursor-pointer transition-all disabled:opacity-60 disabled:cursor-not-allowed"
+              className="bg-highlight text-primary font-bold py-3 px-4 rounded-md hover:opacity-80 cursor-pointer transition-all disabled:opacity-60 disabled:cursor-not-allowed disabled:bg-transparent disabled:text-white border"
               disabled={!isUrlValid}
               aria-label="Minify URL"
             >
@@ -51,13 +58,22 @@ export const FormUrl = () => {
             </span>
           )}
 
+          {loading && (
+            <svg
+              className="mr-3 size-5 animate-spin bg-highlight"
+              viewBox="0 0 24 24"
+            ></svg>
+          )}
+
           {shortUrl && (
-            <div className=" flex center gap-2">
+            <div className=" flex center gap-2 p-4">
               <a
                 href={`${process.env.NEXT_PUBLIC_API_URL}/${shortUrl}`}
                 target="_blank"
                 className={
-                  isUrlValid ? 'hover:text-highlight' : 'outline-red-500'
+                  isUrlValid
+                    ? 'hover:text-highlight  text-2xl underline'
+                    : 'outline-red-500'
                 }
                 aria-label="Shortened URL"
               >
@@ -69,12 +85,12 @@ export const FormUrl = () => {
                 onClick={handleCopy}
                 aria-label="Copy URL"
               >
-                <MdOutlineContentCopy />
+                <MdOutlineContentCopy size={25} />
               </button>
             </div>
           )}
         </div>
-      </main>
-    </>
+      </section>
+    </main>
   );
 };
