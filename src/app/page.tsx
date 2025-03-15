@@ -11,7 +11,7 @@ const cabin = Cabin({
 
 export default function Home() {
   return (
-    <div className={`${cabin.className} bg-primary`}>
+    <div className={`${cabin.className} bg-primary `}>
       <ToastContainer />
       <div className="h-[100vh] w-full flex flex-col items-center justify-between lg:overflow-hidden">
         <Header />
