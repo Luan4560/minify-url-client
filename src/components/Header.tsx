@@ -1,75 +1,69 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import { useState } from 'react';
 import { MdMenu } from 'react-icons/md';
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const scrolltoHash = function (element_id: string) {
-    const element = document.getElementById(element_id);
-    element?.scrollIntoView({
-      behavior: 'smooth',
-      block: 'start',
-      inline: 'center',
-    });
-  };
+  // const scrolltoHash = function (element_id: string) {
+  //   const element = document.getElementById(element_id);
+  //   element?.scrollIntoView({
+  //     behavior: 'smooth',
+  //     block: 'start',
+  //     inline: 'center',
+  //   });
+  // };
 
   return (
-    <header className="w-full bg-primary h-[4rem] flex items-center justify-center shadow-md px-2 lg:px-10">
+    <header className="w-full bg-primary h-[4rem] flex items-center justify-center shadow-md px-2 lg:px-10 sticky">
       <div className="w-[1300px] flex items-center justify-between">
-        <Image
-          src="/minify-logo.svg"
-          width={55}
-          height={55}
-          alt="Minify Logo"
-          quality={100}
-          aria-label="Minify Logo"
-        />
+        <Link href="/">
+          <Image
+            src="/minify-logo.svg"
+            width={55}
+            height={55}
+            alt="Minify Logo"
+            quality={100}
+            aria-label="Minify Logo"
+          />
+        </Link>
         <div className="w-full items-center justify-between px-4 hidden md:flex">
           <nav className="pr-4">
             <ul className="flex gap-4">
               <li>
-                <a
-                  href=""
+                <Link
+                  href="/"
                   className="hover:text-highlight transition duration-300 "
                 >
                   Inicio
-                </a>
+                </Link>
               </li>
 
               <li>
-                <a
-                  href=""
+                <Link
+                  href="/about"
                   className="hover:text-highlight transition duration-300"
                 >
                   Sobre nós
-                </a>
-              </li>
-
-              <li>
-                <a
-                  href=""
-                  className="hover:text-highlight transition duration-300"
-                >
-                  Contatos
-                </a>
+                </Link>
               </li>
             </ul>
           </nav>
 
-          <button
-            className="bg-highlight p-2 rounded-md font-bold hover:opacity-65 cursor-pointer text-primary "
-            onClick={() => scrolltoHash('minify-input')}
+          <Link
+            href=""
+            className="hover:text-highlight transition duration-300"
           >
-            Começar
-          </button>
+            Contato
+          </Link>
         </div>
 
         <div className="md:hidden">
           <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
             <MdMenu
-              size={30}
+              size={40}
               className="hover:text-highlight cursor-pointer "
             />
           </button>
@@ -77,21 +71,21 @@ export const Header = () => {
 
         {isMenuOpen && (
           <div
-            className={`absolute xl:hidden top-[4rem] right-0 rounded-lg w-[50%] h-[24%] bg-primary flex flex-col items-center gap-4 border border-highlight z-10 ${
+            className={`absolute xl:hidden top-[4rem] right-0 rounded-lg w-[50%] py-4 bg-primary flex flex-col items-center gap-4 border border-highlight z-10 ${
               isMenuOpen ? 'menu-enter' : 'menu-exit'
             }`}
           >
             <ul className="flex flex-col items-center gap-4">
-              <li className="w-[241] flex justify-center juslist-none hover:bg-highlight p-4 rounded-lg cursor-pointer hover:text-primary hover: transform duration-300">
-                Inicio
+              <li className="w-full flex justify-center hover:bg-highlight p-4 rounded-lg cursor-pointer hover:text-primary hover: transform duration-300">
+                <Link href="/">Inicio</Link>
               </li>
 
-              <li className="w-[241] flex justify-center juslist-none hover:bg-highlight p-4 rounded-lg cursor-pointer hover:text-primary hover: transform duration-300">
-                Sobre nós
+              <li className="w-full flex justify-center hover:bg-highlight p-4 rounded-lg cursor-pointer hover:text-primary hover: transform duration-300">
+                <Link href="/about">Sobre nós</Link>
               </li>
 
-              <li className="w-[241] flex justify-center juslist-none hover:bg-highlight p-4 rounded-lg cursor-pointer hover:text-primary hover: transform duration-300">
-                Contatos
+              <li className="w-full flex justify-center hover:bg-highlight p-4 rounded-lg cursor-pointer hover:text-primary hover: transform duration-300">
+                <Link href="">Contatos</Link>
               </li>
             </ul>
           </div>

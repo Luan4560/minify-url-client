@@ -20,6 +20,11 @@ body {
   color: var(--text-color);
   background-color: var(--color-primary);
   overflow-x: hidden;
+  height: 100vh !important;
+  width: 100vw !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 @keyframes slideDown {
