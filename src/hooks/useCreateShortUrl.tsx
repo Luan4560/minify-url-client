@@ -51,7 +51,7 @@ export const useCreateShortUrl = () => {
   const isUrlValid = urlSchema.safeParse(longUrl).success;
 
   const inputClass = classNames(
-    'lg:w-full border p-4 border-gray-300 p-2 rounded-md w-full lg:w-3/4 outline-highlight placeholder-gray-500 text-white',
+    'lg:w-full border p-4 border-gray-300 p-2 rounded-md w-full lg:w-3/4 border-highlight placeholder-gray-500 text-white',
     {
       'border-none outline outline-2 outline-red-500':
         !isUrlValid && longUrl !== '',

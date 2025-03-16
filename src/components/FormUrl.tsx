@@ -49,7 +49,7 @@ export const FormUrl = () => {
 
             <button
               onClick={handleSubmitUrl}
-              className="bg-highlight text-primary font-bold py-3 px-4 rounded-md hover:opacity-80 cursor-pointer transition-all disabled:opacity-60 disabled:cursor-not-allowed disabled:bg-transparent disabled:text-white border"
+              className="bg-highlight text-primary font-bold py-3 px-4 rounded-md hover:opacity-80 cursor-pointer transition-all disabled:opacity-60 disabled:cursor-not-allowed disabled:bg-transparent disabled:text-white border border-highlight"
               disabled={!isUrlValid}
               aria-label="Minify URL"
             >
