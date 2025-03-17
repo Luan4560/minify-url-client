@@ -27,12 +27,6 @@ export const metadata: Metadata = {
     ],
     type: 'website',
   },
-  // twitter: {
-  //   card: 'summary_large_image',
-  //   title: 'Meu Site Incrível',
-  //   description: 'Descrição breve e chamativa do seu site.',
-  //   images: ['https://seusite.com/imagem-preview.jpg'],
-  // },
 };
 
 export default function RootLayout({
