@@ -37,7 +37,13 @@ export const CardInstructions = () => {
             className="w-full flex flex-col place-items-center border-highlight border p-4 rounded-2xl"
             key={card.id}
           >
-            <Image src={card.image} width={250} height={100} alt="Card Image" />
+            <Image
+              src={card.image}
+              width={250}
+              height={100}
+              alt="Card Image"
+              loading="lazy"
+            />
             <p className="font-bold text-center text-md">{card.title}</p>
             <p className="text-center text-sm">{card.description}</p>
           </div>
