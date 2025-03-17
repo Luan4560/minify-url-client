@@ -1,3 +1,11 @@
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Sobre Nós',
+  description:
+    'Bem-vindo ao minifyURL, onde simplificar a web é a nossa missão.',
+};
+
 export default function Page() {
   return (
     <div className="h-fit lg:h-full w-full flex flex-col items-center justify-between text-wrap p-8 lg:items-start lg:w-[85%] lg:p-8 lg:pl-[315px]">
