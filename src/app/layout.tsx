@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     siteName: 'MinifyURL',
     images: [
       {
-        url: 'https://minifyurl.net/minify-craw.png',
+        url: '/minify-craw.png',
         width: 1200,
         height: 630,
         alt: 'Imagem de prévia do site',
