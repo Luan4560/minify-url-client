@@ -54,6 +54,7 @@ export const Header = () => {
         <div className="md:hidden">
           <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
             <MdMenu
+              aria-label="Menu"
               size={40}
               className="hover:text-highlight cursor-pointer "
             />
