@@ -7,15 +7,6 @@ import { MdMenu } from 'react-icons/md';
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // const scrolltoHash = function (element_id: string) {
-  //   const element = document.getElementById(element_id);
-  //   element?.scrollIntoView({
-  //     behavior: 'smooth',
-  //     block: 'start',
-  //     inline: 'center',
-  //   });
-  // };
-
   return (
     <header className="w-full bg-primary h-[4rem] flex items-center justify-center shadow-md px-2 lg:px-10 sticky">
       <div className="w-[1300px] flex items-center justify-between">
@@ -77,15 +68,21 @@ export const Header = () => {
           >
             <ul className="flex flex-col items-center gap-4">
               <li className="w-full flex justify-center hover:bg-highlight p-4 rounded-lg cursor-pointer hover:text-primary hover: transform duration-300">
-                <Link href="/">Inicio</Link>
+                <Link href="/" aria-label="Inicio">
+                  Inicio
+                </Link>
               </li>
 
               <li className="w-full flex justify-center hover:bg-highlight p-4 rounded-lg cursor-pointer hover:text-primary hover: transform duration-300">
-                <Link href="/about">Sobre nós</Link>
+                <Link href="/about" aria-label="Sobre nós">
+                  Sobre nós
+                </Link>
               </li>
 
               <li className="w-full flex justify-center hover:bg-highlight p-4 rounded-lg cursor-pointer hover:text-primary hover: transform duration-300">
-                <Link href="">Contatos</Link>
+                <Link href="" aria-label="Contatos">
+                  Contatos
+                </Link>
               </li>
             </ul>
           </div>
