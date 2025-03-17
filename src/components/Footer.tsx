@@ -24,7 +24,7 @@ export const Footer = () => {
         </div>
       </div>
 
-      <p className="text-[12px] italic text-gray-500">
+      <p className="text-[12px] italic text-white">
         &copy; 2025 minifyurl.net Todos os direitos reservados
       </p>
     </footer>

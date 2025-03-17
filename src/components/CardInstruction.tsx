@@ -38,7 +38,7 @@ export const CardInstructions = () => {
             key={card.id}
           >
             <Image src={card.image} width={250} height={100} alt="Card Image" />
-            <h4 className="font-bold text-center text-md">{card.title}</h4>
+            <p className="font-bold text-center text-md">{card.title}</p>
             <p className="text-center text-sm">{card.description}</p>
           </div>
         );
