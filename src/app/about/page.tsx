@@ -11,6 +11,7 @@ export default function Page() {
     <div className="h-fit lg:h-full w-full flex flex-col items-center justify-between text-wrap p-8 lg:items-start lg:w-[85%] lg:p-8 lg:pl-[315px]">
       <section>
         <h1 className="font-bold text-4xl py-8 lg:text-2xl">Sobre Nós</h1>
+        
         <div className="flex flex-col gap-4">
           <p>
             Bem-vindo ao minifyURL, onde simplificar a web é a nossa missão.
